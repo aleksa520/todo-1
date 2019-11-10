@@ -30,11 +30,10 @@
                 <th scope="col">Birth Date</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
-                <th scope="colgroup">Action</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody class="iteh_contact_table_body">
-
             </tbody>
 </table>
 </div>

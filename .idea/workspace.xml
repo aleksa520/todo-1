@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59bfd77f-c893-49bf-b08c-c1a831c2c2c9" name="Default Changelist" comment="" />
+    <list default="true" id="59bfd77f-c893-49bf-b08c-c1a831c2c2c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/connection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/addcontact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/contacts.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/deletecontact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/editcontact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/edituser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/getcontact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/getuser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/servicies/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts.php" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +37,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1T3ainUdSRMGZMCgHWD5hVyoCLS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/application/controllers/servicies" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -59,11 +80,25 @@
       <workItem from="1572691838175" duration="30883000" />
       <workItem from="1572777303897" duration="459000" />
       <workItem from="1572778449718" duration="633000" />
-      <workItem from="1572862428255" duration="14722000" />
+      <workItem from="1572862428255" duration="23286000" />
+      <workItem from="1573320148994" duration="12600000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

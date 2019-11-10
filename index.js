@@ -2,27 +2,28 @@ function renderData(search) {
     $('tbody').empty();
     if (search) {
         $.ajax({
-            url: './application/controllers/servicies/contacts.php',
+            url: './application/controllers/servicies/Contact.php',
             type: 'POST',
             data: {inputText: search},
             success: function (data) {
+                console.log(data);
                 let formedData = JSON.parse(data);
                 formedData.forEach((row) => {
                     $('tbody').append("<tr><td>" + row['id'] + "</td><td>" + row['first_name'] + "</td><td>" + row['last_name'] + "</td><td>" + row['birth_date'] + "</td><td>"
-                        + row['email'] + "</td><td>" + row['phone'] + "</td><td>" + row['first_name'] + "</td><td><div data-id='\"" + row['id'] + "\"' onclick='handleModal(\"edit\", "+ row.id +")' class='iteh_button edit_contacts'>Edit </div></td>" +
+                        + row['email'] + "</td><td>" + row['phone'] + "</td><td><div data-id='\"" + row['id'] + "\"' onclick='handleModal(\"edit\", "+ row.id +")' class='iteh_button edit_contacts'>Edit </div></td>" +
                         "<td><div data-id='\"" + row['id'] + "\"' onclick='handleModal(\"delete\", "+ row.id +")' class='iteh_button delete_contacts'>Delete </div></td>")
                 })
             }
         })
     } else {
         $.ajax({
-            url: './application/controllers/servicies/contacts.php',
+            url: './application/controllers/servicies/Contact.php',
             type: 'GET',
             success: function (data) {
                 let formedData = JSON.parse(data);
                 formedData.forEach((row) => {
                     $('tbody').append("<tr><td>" + row['id'] + "</td><td>" + row['first_name'] + "</td><td>" + row['last_name'] + "</td><td>" + row['birth_date'] + "</td><td>"
-                        + row['email'] + "</td><td>" + row['phone'] + "</td><td>" + row['first_name'] + "</td><td><div data-id='\"" + row['id'] + "\"' onclick='handleModal(\"edit\", "+ row.id +")' class='iteh_button edit_contacts'>Edit </div></td>" +
+                        + row['email'] + "</td><td>" + row['phone'] + "</td><td><div data-id='\"" + row['id'] + "\"' onclick='handleModal(\"edit\", "+ row.id +")' class='iteh_button edit_contacts'>Edit </div></td>" +
                         "<td><div  onclick='handleModal(\"delete\", "+ row.id +")' class='iteh_button delete_contacts'>Delete </div></td>")
                 })
 
@@ -42,7 +43,7 @@ function formSubmitOnAddingContact(event) {
 
 
     $.ajax({
-        url: "./application/controllers/servicies/addcontact.php",
+        url: "./application/controllers/servicies/Contact.php",
         type: 'POST',
         data: {contact: contact},
         success: function (result) {
@@ -52,7 +53,6 @@ function formSubmitOnAddingContact(event) {
 }
 
 function formSubmitonEdingUser(event) {
-    console.log('here')
     event.preventDefault();
     var user = {};
     user['first_name'] = $('.first_name').val();
@@ -62,24 +62,27 @@ function formSubmitonEdingUser(event) {
 
 
     $.ajax({
-        url: "./application/controllers/servicies/edituser.php",
+        url: "./application/controllers/servicies/User.php",
         type: 'PUT',
         data: JSON.stringify(user),
         success: function (result) {
-            // window.location.reload();
+            window.location.reload();
         }
     });
 }
 
-function formSubmitOnEditingContact(event) {
+function formSubmitOnEditingContact(event, id) {
     event.preventDefault();
     var contact = {};
-    contact['id'] = localStorage.getItem('editid');
+    contact['id'] = id;
     contact['first_name'] = $('.first_name').val();
     contact['last_name'] = $('.last_name').val();
     contact['birth_date'] = $('.date').val();
+    contact['email'] = $('.email').val();
+    contact['phone'] = $('.phone').val();
+
     $.ajax({
-        url: "./application/controllers/servicies/editcontact.php",
+        url: "./application/controllers/servicies/Contact.php",
         type: 'PUT',
         data: JSON.stringify(contact),
         success: function (result) {
@@ -88,13 +91,13 @@ function formSubmitOnEditingContact(event) {
     });
 }
 
-function deleteContact() {
-    let id = localStorage.getItem('deleteid')
+function deleteContact(id) {
+    console.log(id);
     $.ajax({
-        url: "./application/controllers/servicies/deletecontact.php",
+        url: "./application/controllers/servicies/Contact.php?id=" +id,
         type: 'DELETE',
-        data: id,
-        success: function () {
+        success: function (data) {
+            console.log(data);
             window.location.reload();
         }
     })
@@ -105,7 +108,7 @@ function handleModal(param,id){
     if(param === 'edit'){
         showModal('editContact',id);
     }else{
-        showModal('deleteContact');
+        showModal('deleteContact', id);
     }
 }
 
@@ -138,7 +141,7 @@ function showModal(param, id = null) {
                 '<input class="iteh_login_button" type="submit" onclick="formSubmitonEdingUser(event)" value="Submit"></form></div><div class="iteh_modal_helper"></div>' +
                 '</div></div>'
             $.ajax({
-                url: "./application/controllers/servicies/getuser.php",
+                url: "./application/controllers/servicies/User.php",
                 type: 'GET',
                 success: function (result) {
                     userInfo = JSON.parse(result);
@@ -159,20 +162,18 @@ function showModal(param, id = null) {
                 '<div class="iteh_modal_container_input"><div>Email: </div><input class="iteh_login_input email" type="email"/></div>' +
                 '<div class="iteh_modal_container_input"><div>Phone: </div><input class="iteh_login_input phone" type="text"/></div>' +
 
-                '<input class="iteh_login_button" type="submit" onclick="formSubmitOnEditingContact(event)" value="Submit"></form></div><div class="iteh_modal_helper"></div>' +
+                '<input class="iteh_login_button" type="submit" onclick="formSubmitOnEditingContact(event, '+ id + ' )" value="Submit"></form></div><div class="iteh_modal_helper"></div>' +
                 '</div></div>';
             $.ajax({
-                url: "./application/controllers/servicies/getcontact.php?id=" + id,
+                url: "./application/controllers/servicies/Contact.php?id=" + id,
                 type: 'GET',
                 success: function (result) {
                     contactInfo = JSON.parse(result);
-                    console.log(contactInfo);
-                    $('.first_name').val(contactInfo['first_name'])
-                    $('.last_name').val(contactInfo['last_name'])
-                    $('.date').val(contactInfo['birth_date'])
-                    $('.email').val(contactInfo['email'])
-                    $('.phone').val(contactInfo['phone'])
-
+                    $('.first_name').val(contactInfo[0]['first_name'])
+                    $('.last_name').val(contactInfo[0]['last_name'])
+                    $('.date').val(contactInfo[0]['birth_date'].trim())
+                    $('.email').val(contactInfo[0]['email'])
+                    $('.phone').val(contactInfo[0]['phone'])
                 }
             });
             break;
@@ -180,7 +181,7 @@ function showModal(param, id = null) {
         case 'deleteContact':
             modal = '<div class="iteh_modal_delete">' +
                 '<span class="iteh_label">Are you sure you want to delete this contact ?</span>' +
-                '<div class="iteh_button_toolbar"><div class="iteh_button submit_contacts" onclick="deleteContact()">Yes</div><div class="iteh_button delete_contacts" onclick="hideModalDelete()">No</div></div></div>'
+                '<div class="iteh_button_toolbar"><div class="iteh_button submit_contacts" onclick="deleteContact('+id+')">Yes</div><div class="iteh_button delete_contacts" onclick="hideModalDelete()">No</div></div></div>'
     }
     $('body').append(modal);
 }
@@ -197,22 +198,21 @@ function hideModalDelete() {
 function logOut() {
     document.location.href = 'http://localhost/Domaci1/index.php'
     $.ajax({
-        url: "./application/controllers/servicies/logout.php",
+        url: "./application/controllers/servicies/Logs.php",
         success: function () {
-            console.log('logout')
         }
     })
 }
 
+
 $('document').ready(function () {
-        renderData();
+    renderData();
         $('.iteh_header_search').keyup(function () {
                 let inputText = $(this).val();
                 if (inputText != '') {
                     renderData(inputText);
                 }else{
                     renderData();
-
                 }
             }
         )
