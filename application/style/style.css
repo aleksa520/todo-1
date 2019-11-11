@@ -8,6 +8,11 @@ html, body{
     background-color: rgb(247, 247, 247);
 }
 
+body{
+    min-width: 930px;
+    overflow: auto;
+}
+
 .iteh_login{
     width: 100%;
     height: 100%;
@@ -77,9 +82,6 @@ html, body{
 }
 
 .iteh_header{
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 100px;
     width: 100%;
     background-color: #D5CFE1;
@@ -98,7 +100,6 @@ html, body{
 .iteh_home{
     padding-top: 150px;
     width: 100%;
-    height: 100%;
 }
 .iteh_contact_table{
     margin: 0 auto;
