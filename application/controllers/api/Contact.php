@@ -17,7 +17,7 @@ class Contact
         }
     }
 
-    public static function get($id = null){
+    public static function get($id = null, $sorted = null){
         $sql = '';
         $dbConnection = new DBConnector();
         $userid = $_SESSION['id'];
@@ -31,6 +31,9 @@ class Contact
         $data = array();
         while ($row = mysqli_fetch_assoc($result)) {
             array_push($data, $row);
+        }
+        if($sorted == true){
+            usort($data, array('Contact', 'comparation'));
         }
         echo json_encode($data);
     }
@@ -65,5 +68,9 @@ class Contact
             }
             echo json_encode($data);
         }
+    }
+
+    public static function comparation($contact1,$contact2){
+        return $contact1['first_name'] > $contact2['first_name'];
     }
 }

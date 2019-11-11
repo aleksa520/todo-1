@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59bfd77f-c893-49bf-b08c-c1a831c2c2c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/connection.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/addcontact.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/contacts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/deletecontact.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/editcontact.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/edituser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/getcontact.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/getuser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/servicies/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/api/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/api/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/servicies/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/servicies/Contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contacts.php" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/controllers/servicies" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
@@ -82,6 +72,7 @@
       <workItem from="1572778449718" duration="633000" />
       <workItem from="1572862428255" duration="23286000" />
       <workItem from="1573320148994" duration="12600000" />
+      <workItem from="1573476502032" duration="536000" />
     </task>
     <servers />
   </component>

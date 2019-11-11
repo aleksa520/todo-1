@@ -91,6 +91,24 @@ function formSubmitOnEditingContact(event, id) {
     });
 }
 
+function sortByName(){
+    $('tbody').empty();
+    $.ajax({
+        url: './application/controllers/servicies/Contact.php',
+        type: 'POST',
+        data: {sort: true},
+        success: function (data) {
+            let formedData = JSON.parse(data);
+            formedData.forEach((row) => {
+                $('tbody').append("<tr><td>" + row['id'] + "</td><td>" + row['first_name'] + "</td><td>" + row['last_name'] + "</td><td>" + row['birth_date'] + "</td><td>"
+                    + row['email'] + "</td><td>" + row['phone'] + "</td><td><div data-id='\"" + row['id'] + "\"' onclick='handleModal(\"edit\", "+ row.id +")' class='iteh_button edit_contacts'>Edit </div></td>" +
+                    "<td><div  onclick='handleModal(\"delete\", "+ row.id +")' class='iteh_button delete_contacts'>Delete </div></td>")
+            })
+
+        }
+    })
+}
+
 function deleteContact(id) {
     console.log(id);
     $.ajax({

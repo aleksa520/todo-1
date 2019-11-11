@@ -16,7 +16,9 @@
         <div class="iteh_search_container">
             <input placeholder="Search" class="iteh_header_search"/>
         </div>
-    <div onclick="logOut()" class="iteh_button so">Sign out</div>
+        <div onclick="sortByName()" class="iteh_button">Sort by name</div>
+
+        <div onclick="logOut()" class="iteh_button so">Sign out</div>
     </div>
 </div>
 <div class="iteh_home">

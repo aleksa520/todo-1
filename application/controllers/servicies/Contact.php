@@ -9,6 +9,12 @@ switch ($_SERVER['REQUEST_METHOD']){
         }
         break;
     case 'POST':
+        if(isset($_POST['sort']) && $_POST['sort'] == true){
+
+
+            Contact::get(null, true);
+            break;
+        }
         if(isset($_POST['inputText'])){
             Contact::search($_POST['inputText']);
         }else{
