@@ -214,7 +214,7 @@ function hideModalDelete() {
 }
 
 function logOut() {
-    document.location.href = 'http://localhost/Domaci1/index.php'
+    document.location.href = 'http://localhost/itehdomaci1/index.php'
     $.ajax({
         url: "./application/controllers/servicies/Logs.php",
         success: function () {
